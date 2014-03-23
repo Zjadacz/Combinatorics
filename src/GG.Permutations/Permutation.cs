@@ -30,7 +30,10 @@ namespace GG.Permutations
                 }
             }
 
-            if (largestIndex < 0) return false;
+            if (largestIndex < 0)
+            {
+                return false;
+            }
 
             var largestIndex2 = -1;
             for (var i = input.Count - 1; i >= 0; i--)
