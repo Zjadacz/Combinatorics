@@ -6,7 +6,6 @@ This is simple .NET library for creating various permutations, combinations, and
 - implemented to use generic types
 - use extension methods to IList
 - use custom elements comparisson method
-- 
 
 ##Permutation
 
@@ -26,3 +25,7 @@ Or for string "abc" it will be:
 
 For more information look at:
 http://en.wikipedia.org/wiki/Permutation
+
+###NextPermutation Method
+
+By default next permutation method will return next "greather" permutation, however it will be overloaded to support custom comparer.
