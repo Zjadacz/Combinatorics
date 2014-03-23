@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GG.Permutations
 {
@@ -57,6 +54,27 @@ namespace GG.Permutations
             }
 
             return true; 
+        }
+
+        /// <summary>
+        /// Generic implementation of Knuth's permutation algorithm
+        /// 1. Find the largest index j such that a[j] < a[j + 1]. If no such index exists, the permutation is the last permutation.
+        /// 2. Find the largest index l such that a[j] < a[l]. Since j + 1 is such an index, l is well defined and satisfies j < l.
+        /// 3. Swap a[j] with a[l].
+        /// 4. Reverse the sequence from a[j + 1] up to and including the final element a[n].
+        /// </summary>
+        /// <param name="text">Input text to permutate</param>
+        /// <returns>True if permutation was done, false otherwise</returns>
+        public bool NextPermutation(ref string text)
+        {
+            var listOfCharacters = text.ToCharArray();
+            var result = this.NextPermutation(listOfCharacters);
+            if (result)
+            {
+                text = new string(listOfCharacters);
+            }
+
+            return result;
         }
     }
 }

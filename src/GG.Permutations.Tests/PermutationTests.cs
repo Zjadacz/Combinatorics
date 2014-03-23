@@ -108,9 +108,54 @@ namespace GG.Permutations.Tests
             Assert.IsTrue(list[0] > number1 || (list[0] == number1 && list[1] > number1));
         }
 
+        [TestMethod]
+        public void PermutationOfStringABCUpdatesStringToACB()
+        {
+            // Given
+            var text = "ABC";
+            var expectedText = "ACB";
+
+            // When
+            NextPermutation(ref text);
+
+            // Then
+            Assert.AreEqual(expectedText, text);
+        }
+
+        [TestMethod]
+        public void PermutationOfStringABCReturnTrue()
+        {
+            // Given
+            var text = "ABC";
+
+            // When
+            var result = NextPermutation(ref text);
+
+            // Then
+            Assert.IsTrue(result);
+        }
+
+        [TestMethod]
+        public void PermutationOfStringCBAReturnsFalse()
+        {
+            // Given
+            var text = "CBA";
+
+            // When
+            var result = NextPermutation(ref text);
+
+            // Then
+            Assert.IsFalse(result);
+        }
+
         public bool NextPermutation<T>(IList<T> collection) where T : IComparable<T>
         {
             return new Permutation().NextPermutation<T>(collection);
+        }
+
+        public bool NextPermutation(ref string text)
+        {
+            return new Permutation().NextPermutation(ref text);
         }
     }
 }
