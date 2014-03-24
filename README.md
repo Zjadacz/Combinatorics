@@ -28,4 +28,9 @@ http://en.wikipedia.org/wiki/Permutation
 
 ###NextPermutation Method
 
-By default next permutation method will return next "greather" permutation, however it will be overloaded to support custom comparer.
+By default next permutation method will return next "greather" permutation, however it will be overloaded to support custom comparer:
+
+```c#
+Permutaiton.Next<T>(IList<T> input, IComparer<T> comparer = null)
+Permutation.Next(string text, IComparer<char> comparer = null)
+```
