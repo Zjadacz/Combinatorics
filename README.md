@@ -26,9 +26,9 @@ Or for string "abc" it will be:
 For more information look at:
 http://en.wikipedia.org/wiki/Permutation
 
-###NextPermutation Method
+###Implementation
 
-By default next permutation method will return next "greather" permutation, however it will be overloaded to support custom comparer:
+Permutation implements one method called Next, which by default will return next "greather" permutation (see example above), however it can be overloaded to support custom comparer:
 
 ```c#
 Permutaiton.Next<T>(IList<T> input, IComparer<T> comparer = null)
