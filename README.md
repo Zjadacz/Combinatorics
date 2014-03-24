@@ -34,3 +34,18 @@ By default next permutation method will return next "greather" permutation, howe
 Permutaiton.Next<T>(IList<T> input, IComparer<T> comparer = null)
 Permutation.Next(string text, IComparer<char> comparer = null)
 ```
+
+When we want to create permutations in reversed order, the code should look like this:
+
+```c#
+
+public class ReversedOrderComparer: IComparer<int>
+{
+  public int Compare(int x, int y)
+  {
+      return y.CompareTo(x);
+  }
+}
+
+new Permutation().Next({ 9, 8, 7}, new ReversedOrderComparer());
+```
