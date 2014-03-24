@@ -47,5 +47,5 @@ public class ReversedOrderComparer: IComparer<int>
   }
 }
 
-new Permutation().Next({ 9, 8, 7}, new ReversedOrderComparer());
+new Permutation().Next({ 9, 8, 7 }, new ReversedOrderComparer());
 ```
