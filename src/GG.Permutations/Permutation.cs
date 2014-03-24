@@ -14,13 +14,15 @@ namespace GG.Permutations
         /// </summary>
         /// <typeparam name="T">Generic type of list elements</typeparam>
         /// <param name="input">IList collection of element to permutate</param>
+        /// <param name="comparer">Custom T comparer</param>
         /// <returns>True if permutation was done, false otherwise</returns>
-        public bool NextPermutation<T>(IList<T> input) where T: IComparable<T>
+        public bool NextPermutation<T>(IList<T> input, IComparer<T> comparer = null) where T: IComparable<T>
         {
             var largestIndex = -1;
             for (var i = input.Count - 2; i >= 0; i--)
             {
-                if (input[i].CompareTo(input[i + 1]) < 0)
+                if (input[i].CompareTo(input[i + 1]) < 0 ||
+                    (comparer != null && comparer.Compare(input[i], input[i + 1]) > 0))
                 {
                     largestIndex = i;
                     break;
@@ -35,7 +37,8 @@ namespace GG.Permutations
             var largestIndex2 = -1;
             for (var i = input.Count - 1; i >= 0; i--)
             {
-                if (input[largestIndex].CompareTo(input[i]) < 0)
+                if (input[largestIndex].CompareTo(input[i]) < 0 ||
+                    (comparer != null && comparer.Compare(input[largestIndex], input[i]) > 0))
                 {
                     largestIndex2 = i;
                     break;
@@ -65,10 +68,10 @@ namespace GG.Permutations
         /// </summary>
         /// <param name="text">Input text to permutate</param>
         /// <returns>True if permutation was done, false otherwise</returns>
-        public bool NextPermutation(ref string text)
+        public bool NextPermutation(ref string text, IComparer<char> comparer = null)
         {
             var listOfCharacters = text.ToCharArray();
-            var result = this.NextPermutation(listOfCharacters);
+            var result = this.NextPermutation(listOfCharacters, comparer);
             if (result)
             {
                 text = new string(listOfCharacters);
