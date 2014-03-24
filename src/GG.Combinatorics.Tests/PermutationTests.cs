@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 using System.Collections;
 
-namespace GG.Permutations.Tests
+namespace GG.Combinatorics.Tests
 {
     [TestClass]
     public class PermutationTests

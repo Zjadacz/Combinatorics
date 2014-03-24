@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GG.Permutations", "GG.Permutations.csproj", "{8A7FB26C-86C4-4D35-B0B3-534F6EE7EFB5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GG.Combinatorics", "GG.Combinatorics\GG.Combinatorics.csproj", "{8A7FB26C-86C4-4D35-B0B3-534F6EE7EFB5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GG.Permutations.Tests", "..\GG.Permutations.Tests\GG.Permutations.Tests.csproj", "{FAECDBE3-6F6E-4547-A349-E51DA5721BD1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GG.Combinatorics.Tests", "GG.Combinatorics.Tests\GG.Combinatorics.Tests.csproj", "{FAECDBE3-6F6E-4547-A349-E51DA5721BD1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -6,8 +6,8 @@
     <ProjectGuid>{FAECDBE3-6F6E-4547-A349-E51DA5721BD1}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>GG.Permutations.Tests</RootNamespace>
-    <AssemblyName>GG.Permutations.Tests</AssemblyName>
+    <RootNamespace>GG.Combinatorics.Tests</RootNamespace>
+    <AssemblyName>GG.Combinatorics.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -55,9 +55,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\GG.Permutations\GG.Permutations.csproj">
+    <ProjectReference Include="..\GG.Combinatorics\GG.Combinatorics.csproj">
       <Project>{8a7fb26c-86c4-4d35-b0b3-534f6ee7efb5}</Project>
-      <Name>GG.Permutations</Name>
+      <Name>GG.Combinatorics</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

@@ -7,8 +7,8 @@
     <ProjectGuid>{8A7FB26C-86C4-4D35-B0B3-534F6EE7EFB5}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>GG.Permutations</RootNamespace>
-    <AssemblyName>GG.Permutations</AssemblyName>
+    <RootNamespace>GG.Combinatorics</RootNamespace>
+    <AssemblyName>GG.Combinatorics</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

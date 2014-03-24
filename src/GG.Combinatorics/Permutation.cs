@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace GG.Permutations
+namespace GG.Combinatorics
 {
     public class Permutation
     {
