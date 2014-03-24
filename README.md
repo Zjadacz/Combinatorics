@@ -1,4 +1,4 @@
-Permutations
+Combinatorics
 ============
 ##Summary
 This is simple .NET library for creating various permutations, combinations, and other. Those are main implementation and functional features of the library:
