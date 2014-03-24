@@ -16,7 +16,7 @@ namespace GG.Combinatorics
         /// <param name="input">IList collection of element to permutate</param>
         /// <param name="comparer">Custom T comparer</param>
         /// <returns>True if permutation was done, false otherwise</returns>
-        public bool NextPermutation<T>(IList<T> input, IComparer<T> comparer = null) where T: IComparable<T>
+        public bool Next<T>(IList<T> input, IComparer<T> comparer = null) where T: IComparable<T>
         {
             var largestIndex = -1;
             for (var i = input.Count - 2; i >= 0; i--)
@@ -68,10 +68,10 @@ namespace GG.Combinatorics
         /// </summary>
         /// <param name="text">Input text to permutate</param>
         /// <returns>True if permutation was done, false otherwise</returns>
-        public bool NextPermutation(ref string text, IComparer<char> comparer = null)
+        public bool Next(ref string text, IComparer<char> comparer = null)
         {
             var listOfCharacters = text.ToCharArray();
-            var result = this.NextPermutation(listOfCharacters, comparer);
+            var result = this.Next(listOfCharacters, comparer);
             if (result)
             {
                 text = new string(listOfCharacters);

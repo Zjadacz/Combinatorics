@@ -150,12 +150,12 @@ namespace GG.Combinatorics.Tests
 
         public bool NextPermutation<T>(IList<T> collection) where T : IComparable<T>
         {
-            return new Permutation().NextPermutation<T>(collection);
+            return new Permutation().Next<T>(collection);
         }
 
         public bool NextPermutation(ref string text)
         {
-            return new Permutation().NextPermutation(ref text);
+            return new Permutation().Next(ref text);
         }
     }
 }
