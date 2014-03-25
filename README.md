@@ -28,7 +28,7 @@ http://en.wikipedia.org/wiki/Permutation
 
 ###Implementation
 
-Permutation implements one method called Next, which by default will return next "greather" permutation (see example above), however it can be overloaded to support custom comparer:
+GG.Combinatorics namespace contains class called Permutation, that implements one method called Next. The method by default will return next "greather" permutation (see example above), however it can be overloaded to support custom comparer:
 
 ```c#
 Permutaiton.Next<T>(IList<T> input, IComparer<T> comparer = null)
