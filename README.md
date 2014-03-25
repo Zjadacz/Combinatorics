@@ -31,8 +31,8 @@ http://en.wikipedia.org/wiki/Permutation
 GG.Combinatorics namespace contains class called Permutation, that implements one method called Next. The method by default will return next "greather" permutation (see example above), however it can be overloaded to support custom comparer:
 
 ```c#
-Permutaiton.Next<T>(IList<T> input, IComparer<T> comparer = null)
-Permutation.Next(string text, IComparer<char> comparer = null)
+bool Permutaiton.Next<T>(IList<T> input, IComparer<T> comparer = null)
+bool Permutation.Next(string text, IComparer<char> comparer = null)
 ```
 
 When we want to create permutations in reversed order, the code should look like this:
@@ -63,3 +63,14 @@ Partition represents decomposition of any positive integer to the sum of smaller
 - 1,1,2,2
 - 1,1,1,1,2
 - 1,1,1,1,1,1
+
+For more information look at:
+http://en.wikipedia.org/wiki/Partition_(number_theory)
+
+###Implementation
+
+GG.Combinatorics namespace contains class callled Partition, that implements method called Next. This method updates list given as a parameter to next permutation (see example above). If next partition is available it return true, false otherwise.
+
+```c#
+bool Partition.Next(List<int> input)
+```
