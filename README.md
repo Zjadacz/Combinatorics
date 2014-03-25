@@ -96,6 +96,9 @@ Simillary to integer partition set partition is used to create different divisio
 - {a}, {b}, {c,d}
 - {a}, {c}, {b,d}
 - {a}, {d}, {b,c}
+- {b}, {c}, {a,d}
+- {b}, {d}, {a,c}
+- {c}, {d}, {a,b}
 - {a}, {b}, {c}, {d}
 
 ###Implementation
