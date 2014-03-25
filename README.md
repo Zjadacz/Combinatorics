@@ -74,3 +74,11 @@ GG.Combinatorics namespace contains class callled Partition, that implements met
 ```c#
 bool Partition.Next(List<int> input)
 ```
+
+Example of usage:
+
+```c#
+var list = new List<int> { 5 };
+new Permutation().Next(list);
+// will update list to  { 1, 4 } and return true
+```
