@@ -52,7 +52,7 @@ new Permutation().Next({ 9, 8, 7 }, new ReversedOrderComparer());
 
 ##Integer Partitions
 
-Partition represents decomposition of any positive integer to the sum of smaller integers. For example here is a list of all partitions of number 6:
+Partition is a way of writing number as a sum of positive integers. Two sums that differ only in the order of their summands are consider the same parition. For example here is a list of all subsequent partitions of number 6:
 - 1,5
 - 2,4
 - 1,1,4
