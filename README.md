@@ -7,7 +7,7 @@ This is simple .NET library for creating various permutations, combinations, and
 - use extension methods to IList
 - use custom elements comparisson method
 
-##Permutation
+##Permutations
 
 By permutation we understant different order of the elements of the list/array. For example here are all permutations of number 123:
 - 132
@@ -50,7 +50,7 @@ public class ReversedOrderComparer: IComparer<int>
 new Permutation().Next({ 9, 8, 7 }, new ReversedOrderComparer());
 ```
 
-##Partition
+##Integer Partitions
 
 Partition represents decomposition of any positive integer to the sum of smaller integers. For example here is a list of all partitions of number 6:
 - 1,5
@@ -69,16 +69,43 @@ http://en.wikipedia.org/wiki/Partition_(number_theory)
 
 ###Implementation
 
-GG.Combinatorics namespace contains class callled Partition, that implements method called Next. This method updates list given as a parameter to next permutation (see example above). If next partition is available it return true, false otherwise.
+GG.Combinatorics namespace contains class IntegerPartition, that implements method called Next. This method updates list given as a parameter to next partition (see example above). If next partition is available it return true, false otherwise.
 
 ```c#
-bool Partition.Next(List<int> input)
+bool IntegerPartition.Next(List<int> input)
 ```
 
 Example of usage:
 
 ```c#
 var list = new List<int> { 5 };
-new Permutation().Next(list);
+new IntegerPartition().Next(list);
 // will update list to  { 1, 4 } and return true
+```
+
+##SetPartition
+
+Simillary to integer partition set partition is used to create different division (subsets) of given set. For example when we try to create partitions for set {a,b,c,d}, we will end up with:
+{a}, {b,c,d}
+{b}, {a,c,d}
+{c}, {a,b,d}
+{d}, {a,b,c}
+{a,b}, {c,d}
+{a,c}, {b,d}
+{a,d}, {b,c}
+{a}, {b}, {c,d}
+{a}, {c}, {b,d}
+{a}, {d}, {b,c}
+{a}, {b}, {c}, {d}
+
+###Implementation
+
+GG.Combinatorics namespace contains class SetPartition, that implements method called Next. This method update lists of lists given as a parameter to next set partition. If next partition is available it return true, false otherwise.
+
+```c#
+var list = new List<int> { 
+  new List<int> { 1, 2, 3, 4} 
+};
+new SetPartition().Next(list);
+// will update list to  {{1}, {2,3,4}} and return true
 ```
