@@ -49,3 +49,17 @@ public class ReversedOrderComparer: IComparer<int>
 
 new Permutation().Next({ 9, 8, 7 }, new ReversedOrderComparer());
 ```
+
+##Partition
+
+Partition represents decomposition of any positive integer to the sum of smaller integers. For example here is a list of all partitions of number 6:
+1,5
+2,4
+1,1,4
+3,3
+1,2,3
+1,1,1,3
+2,2,2
+1,1,2,2
+1,1,1,1,2
+1,1,1,1,1,1
