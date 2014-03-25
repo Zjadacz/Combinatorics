@@ -54,6 +54,7 @@
     <Compile Include="PartitionTests.cs" />
     <Compile Include="PermutationTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SetPartitionTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GG.Combinatorics\GG.Combinatorics.csproj">

@@ -25,6 +25,11 @@ namespace GG.Combinatorics.Tests
             return GenericIList<int>(comaSeparatedString, int.Parse);
         }
 
+        public static IList<char> CharIList(string comaSeparatedString)
+        {
+            return GenericIList<char>(comaSeparatedString, s => s[0]);
+        }
+
         private static IList<T> GenericIList<T>(string comaSeparatedString, Func<string, T> parsingFunction)
         {
             string[] parts = comaSeparatedString.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GG.Combinatorics
 {
-    public class Partition
+    public class IntegerPartition
     {
         /// <summary>
         /// Example:

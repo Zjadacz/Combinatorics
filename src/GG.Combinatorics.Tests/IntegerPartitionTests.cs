@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace GG.Combinatorics.Tests
 {
     [TestClass]
-    public class PartitionTests
+    public class IntegerPartitionTests
     {
         [TestMethod]
         public void NextPartitionOfEmptyListReturnsFalse()
@@ -134,7 +134,7 @@ namespace GG.Combinatorics.Tests
 
         public bool NextPartition(List<int> input)
         {
-            return new Partition().Next(input);
+            return new IntegerPartition().Next(input);
         }
     }
 }
