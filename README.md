@@ -86,17 +86,17 @@ new IntegerPartition().Next(list);
 ##SetPartition
 
 Simillary to integer partition set partition is used to create different division (subsets) of given set. For example when we try to create partitions for set {a,b,c,d}, we will end up with:
-{a}, {b,c,d}
-{b}, {a,c,d}
-{c}, {a,b,d}
-{d}, {a,b,c}
-{a,b}, {c,d}
-{a,c}, {b,d}
-{a,d}, {b,c}
-{a}, {b}, {c,d}
-{a}, {c}, {b,d}
-{a}, {d}, {b,c}
-{a}, {b}, {c}, {d}
+- {a}, {b,c,d}
+- {b}, {a,c,d}
+- {c}, {a,b,d}
+- {d}, {a,b,c}
+- {a,b}, {c,d}
+- {a,c}, {b,d}
+- {a,d}, {b,c}
+- {a}, {b}, {c,d}
+- {a}, {c}, {b,d}
+- {a}, {d}, {b,c}
+- {a}, {b}, {c}, {d}
 
 ###Implementation
 
