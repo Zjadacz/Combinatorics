@@ -7,7 +7,7 @@ using System.Collections;
 namespace GG.Combinatorics.Tests
 {
     [TestClass]
-    public class PermutationTests
+    public class PermutationGeneratorTests
     {
         [TestMethod]
         public void PermutatingEmptyCollectionDoesNothingToCollection()
@@ -150,12 +150,12 @@ namespace GG.Combinatorics.Tests
 
         public bool NextPermutation<T>(IList<T> collection) where T : IComparable<T>
         {
-            return new Permutation().Next<T>(collection);
+            return new PermutationGenerator().Next<T>(collection);
         }
 
         public bool NextPermutation(ref string text)
         {
-            return new Permutation().Next(ref text);
+            return new PermutationGenerator().Next(ref text);
         }
     }
 }

@@ -10,7 +10,7 @@ namespace GG.Combinatorics
     /// Partition is a way of writing number as a sum of positive integers. Two sums that differ only 
     /// in the order of their summands are consider the same parition.
     /// </summary>
-    public class IntegerPartition
+    public class IntegerPartitionGenerator
     {
         /// <summary>
         /// Transforms permutation into next "lower" partition if possible. For example:

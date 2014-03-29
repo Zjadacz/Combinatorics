@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace GG.Combinatorics
 {
-    public class Permutation
+    public class PermutationGenerator
     {
         /// <summary>
         /// Generic implementation of Knuth's permutation algorithm

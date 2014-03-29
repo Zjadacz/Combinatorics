@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GG.Combinatorics
 {
-    public class SetPartition
+    public class SetPartitionGenerator
     {
         /// <summary>
         /// Simillary to integer partition set partition is used to create different division (subsets) of given set. 
@@ -41,7 +41,7 @@ namespace GG.Combinatorics
 
             var intPartition = CreateIntPartition<T>(collectionOfSets);
             var flatCollection = collectionOfSets.SelectMany(s => s).ToArray();
-            var permutationGenerator = new Permutation();
+            var permutationGenerator = new PermutationGenerator();
 
             bool wasChange = false;
 
@@ -53,7 +53,7 @@ namespace GG.Combinatorics
             if (!wasChange)
             {
                 flatCollection = flatCollection.OrderBy(k => k).ToArray();
-                wasChange = new IntegerPartition().Next(intPartition);
+                wasChange = new IntegerPartitionGenerator().Next(intPartition);
             }
 
             if (wasChange)

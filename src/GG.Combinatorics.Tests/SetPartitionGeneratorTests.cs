@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace GG.Combinatorics.Tests
 {
     [TestClass]
-    public class SetPartitionTests
+    public class SetPartitionGeneratorTests
     {
         [TestMethod]
         public void NextSetPartitionFrom2ElementsSetUpdatesCollectionToTwoOneElementSets()
@@ -115,12 +115,12 @@ namespace GG.Combinatorics.Tests
 
         public bool NextSetPartition<T>(IList<IList<T>> collectionOfSets) where T: IComparable<T>
         {
-            return new SetPartition().Next<T>(collectionOfSets);
+            return new SetPartitionGenerator().Next<T>(collectionOfSets);
         }
 
         public List<int> CreateIntPartition<T>(IList<IList<T>> collectionOfSets)
         {
-            return new SetPartition().CreateIntPartition<T>(collectionOfSets);
+            return new SetPartitionGenerator().CreateIntPartition<T>(collectionOfSets);
         }
     }
 }
