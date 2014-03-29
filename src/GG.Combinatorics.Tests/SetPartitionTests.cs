@@ -41,6 +41,44 @@ namespace GG.Combinatorics.Tests
         }
 
         [TestMethod]
+        public void NextSetPartitionFromSetThatAlowsPermutationWillPermutateNumberButTheCountOfSetsStaysTheSame()
+        {
+            // Given
+            var list1 = Any.CharIList("a");
+            var list2 = Any.CharIList("b,c,d");
+            var listOfLists = new List<IList<char>> { list1, list2 };
+            var expectedList1 = Any.CharIList("b");
+            var expectedList2 = Any.CharIList("a,c,d");
+
+            // When
+            NextSetPartition<char>(listOfLists);
+
+            // Then
+            Assert.AreEqual(2, listOfLists.Count);
+            CollectionAssert.AreEqual(expectedList1.ToList(), listOfLists[0].ToList());
+            CollectionAssert.AreEqual(expectedList2.ToList(), listOfLists[1].ToList());
+        }
+
+        [TestMethod]
+        public void NextSetPartitionFromDandABCWillPermutateToABandCD()
+        {
+            // Given
+            var list1 = Any.CharIList("d");
+            var list2 = Any.CharIList("a,b,c");
+            var listOfLists = new List<IList<char>> { list1, list2 };
+            var expectedList1 = Any.CharIList("a,b");
+            var expectedList2 = Any.CharIList("c,d");
+
+            // When
+            NextSetPartition<char>(listOfLists);
+
+            // Then
+            Assert.AreEqual(2, listOfLists.Count);
+            CollectionAssert.AreEqual(expectedList1.ToList(), listOfLists[0].ToList());
+            CollectionAssert.AreEqual(expectedList2.ToList(), listOfLists[1].ToList());
+        }
+
+        [TestMethod]
         public void CreateIntPartitionFromTwoThreeElementSetsReturns33()
         {
             // Given
@@ -56,7 +94,7 @@ namespace GG.Combinatorics.Tests
             CollectionAssert.AreEqual(expectedIntPartition, result);
         }
 
-        public bool NextSetPartition<T>(IList<IList<T>> collectionOfSets)
+        public bool NextSetPartition<T>(IList<IList<T>> collectionOfSets) where T: IComparable<T>
         {
             return new SetPartition().Next<T>(collectionOfSets);
         }

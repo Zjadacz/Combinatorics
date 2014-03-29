@@ -6,18 +6,22 @@ using System.Threading.Tasks;
 
 namespace GG.Combinatorics
 {
+    /// <summary>
+    /// Partition is a way of writing number as a sum of positive integers. Two sums that differ only 
+    /// in the order of their summands are consider the same parition.
+    /// </summary>
     public class IntegerPartition
     {
         /// <summary>
-        /// Example:
-        /// {6}, {1,5}, {2,4}, {1,1,4}, {1,2,3}, {1,1,1,3}, {2,2,2}, {1,1,2,2}, {1,1,1,1,2,2}, {1,1,1,1,1,1}
+        /// Transforms permutation into next "lower" partition if possible. For example:
+        /// {6} => {1,5} => {2,4} => {1,1,4} => {1,2,3} => {1,1,1,3} => {2,2,2} => {1,1,2,2} => {1,1,1,1,2} => {1,1,1,1,1,1}
         /// Algorithm:
         /// a) if first number is greather than 1, subtract one from it insert 1 at the beginning
         /// b) look up for number greather than 1 and 
         /// b1) if number is equal two subtract one from it and add insert one as predecessor
         /// b2) if number is more than two subtract one from it and add one to predecessor, aggregate to left
         /// </summary>
-        /// <param name="input"></param>
+        /// <param name="input">Input partition</param>
         /// <returns></returns>
         public bool Next(List<int> input)
         {
