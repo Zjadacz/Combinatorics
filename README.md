@@ -4,8 +4,8 @@ Combinatorics
 This is simple .NET library for creating various permutations, combinations, and other. Those are main implementation and functional features of the library:
 - implemented using BDD
 - implemented to use generic types
-- use extension methods to IList
 - use custom elements comparisson method
+- generator classes should be stateless, hence each next combination, permutation, etc, should be generated from previous one
 
 ##Permutations
 
@@ -28,11 +28,11 @@ http://en.wikipedia.org/wiki/Permutation
 
 ###Implementation
 
-GG.Combinatorics namespace contains class called Permutation, that implements one method called Next. The method by default will return next "greather" permutation (see example above), however it can be overloaded to support custom comparer:
+GG.Combinatorics namespace contains class called PermutationGenerator, that implements one method called Next. The method by default will return next "greather" permutation (see example above), however it can be overloaded to support custom comparer:
 
 ```c#
-bool Permutaiton.Next<T>(IList<T> input, IComparer<T> comparer = null)
-bool Permutation.Next(string text, IComparer<char> comparer = null)
+bool PermutaitonGenerator.Next<T>(IList<T> input, IComparer<T> comparer = null)
+bool PermutationGenerator.Next(string text, IComparer<char> comparer = null)
 ```
 
 When we want to create permutations in reversed order, the code should look like this:
@@ -47,7 +47,7 @@ public class ReversedOrderComparer: IComparer<int>
   }
 }
 
-new Permutation().Next({ 9, 8, 7 }, new ReversedOrderComparer());
+new PermutationGenerator().Next({ 9, 8, 7 }, new ReversedOrderComparer());
 ```
 
 ##Integer Partitions
@@ -69,17 +69,17 @@ http://en.wikipedia.org/wiki/Partition_(number_theory)
 
 ###Implementation
 
-GG.Combinatorics namespace contains class IntegerPartition, that implements method called Next. This method updates list given as a parameter to next partition (see example above). If next partition is available it return true, false otherwise.
+GG.Combinatorics namespace contains class IntegerPartitionGenerator, that implements method called Next. This method updates list given as a parameter to next partition (see example above). If next partition is available it return true, false otherwise.
 
 ```c#
-bool IntegerPartition.Next(List<int> input)
+bool IntegerPartitionGenerator.Next(List<int> input)
 ```
 
 Example of usage:
 
 ```c#
 var list = new List<int> { 5 };
-new IntegerPartition().Next(list);
+new IntegerPartitionGenerator().Next(list);
 // will update list to  { 1, 4 } and return true
 ```
 
@@ -103,12 +103,12 @@ Simillary to integer partition set partition is used to create different divisio
 
 ###Implementation
 
-GG.Combinatorics namespace contains class SetPartition, that implements method called Next. This method update lists of lists given as a parameter to next set partition. If next partition is available it return true, false otherwise.
+GG.Combinatorics namespace contains class SetPartitionGenerator, that implements method called Next. This method update lists of lists given as a parameter to next set partition. If next partition is available it return true, false otherwise.
 
 ```c#
 var list = new List<int> { 
   new List<int> { 1, 2, 3, 4} 
 };
-new SetPartition().Next(list);
+new SetPartitionGenerator().Next(list);
 // will update list to  {{1}, {2,3,4}} and return true
 ```
