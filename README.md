@@ -112,3 +112,7 @@ var list = new List<int> {
 new SetPartitionGenerator().Next(list);
 // will update list to  {{1}, {2,3,4}} and return true
 ```
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/Zjadacz/combinatorics/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
