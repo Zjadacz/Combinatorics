@@ -148,6 +148,66 @@ namespace GG.Combinatorics.Tests
             Assert.IsFalse(result);
         }
 
+        [TestMethod]
+        public void CountAllFrom1ElementSetReturn1()
+        {
+            // Given
+            var element = Any.Int();
+            var list = Any.IntIList(element.ToString());
+
+            // When
+            var result = CountAll(list);
+
+            // Then
+            Assert.AreEqual(1, result);
+        }
+
+        [TestMethod]
+        public void CountAllFrom2DistinctElementSetReturn2()
+        {
+            // Given
+            var element1 = Any.Int();
+            var element2 = Any.IntLessThan(element1);
+            var list = new int[] { element1, element2 };
+
+            // When
+            var result = CountAll(list);
+
+            // Then
+            Assert.AreEqual(2, result);
+        }
+
+        [TestMethod]
+        public void CountAllFrom3DistinctElementSetReturn6()
+        {
+            // Given
+            var element1 = Any.Int();
+            var element2 = Any.IntLessThan(element1);
+            var element3 = Any.IntLessThan(element2);
+            var list = new int[] { element1, element2, element3 };
+
+            // When
+            var result = CountAll(list);
+
+            // Then
+            Assert.AreEqual(6, result);
+        }
+
+        [TestMethod]
+        public void CountAllFrom3ElementSetWhereTwoAreTheSameReturn2()
+        {
+            // Given
+            var element1 = Any.Int();
+            var element2 = Any.IntLessThan(element1);
+            var list = new int[] { element1, element2, element1 };
+
+            // When
+            var result = CountAll(list);
+
+            // Then
+            Assert.AreEqual(2, result);
+        }
+
         public bool NextPermutation<T>(IList<T> collection) where T : IComparable<T>
         {
             return new PermutationGenerator().Next<T>(collection);
@@ -156,6 +216,11 @@ namespace GG.Combinatorics.Tests
         public bool NextPermutation(ref string text)
         {
             return new PermutationGenerator().Next(ref text);
+        }
+
+        public long CountAll<T>(IList<T> collection) where T: IComparable<T>
+        {
+            return new PermutationGenerator().CountAll(collection);
         }
     }
 }

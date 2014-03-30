@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 
 namespace GG.Combinatorics
@@ -78,6 +79,31 @@ namespace GG.Combinatorics
             }
 
             return result;
+        }
+
+        public long CountAll<T>(IList<T> input, IComparer<T> comparer = null) where T: IComparable<T>
+        {
+            IList<T> ordered = null;
+
+            if (comparer != null)
+            {
+                ordered = input.OrderBy(k => k, comparer).ToList();
+            }
+            else
+            {
+                ordered = input.OrderBy(k => k).ToList();
+            }
+
+            int distinctElementsCount = 1;
+            for (int i = 1; i < ordered.Count; i++)
+            {
+                if(ordered[i - 1].CompareTo(ordered[i]) != 0)
+                {
+                    distinctElementsCount++;
+                }
+            }
+
+            return MathHelper.Factorial(distinctElementsCount);
         }
     }
 }
