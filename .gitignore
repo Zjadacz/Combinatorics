@@ -13,6 +13,7 @@
 x64/
 build/
 [Bb]in/
+!/bin/
 [Oo]bj/
 
 # Enable "build/" folder in the NuGet Packages folder since NuGet packages use it for MSBuild targets
@@ -29,6 +30,7 @@ build/
 *.obj
 *.pch
 *.pdb
+!/bin/**/*.pdb
 *.pgc
 *.pgd
 *.rsp
