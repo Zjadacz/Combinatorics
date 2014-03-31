@@ -109,6 +109,7 @@ GG.Combinatorics namespace contains class SetPartitionGenerator, that implements
 var list = new List<int> { 
   new List<int> { 1, 2, 3, 4} 
 };
+
 new SetPartitionGenerator().Next(list);
 // will update list to  {{1}, {2,3,4}} and return true
 ```
