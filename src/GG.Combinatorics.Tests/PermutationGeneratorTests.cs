@@ -11,7 +11,7 @@ namespace GG.Combinatorics.Tests
         public void PermutatingEmptyCollectionDoesNothingToCollection()
         {
             // Given
-            IList<int> list = Any.IntIList("");
+            var list = new List<int>();
 
             // When
             NextPermutation(list);
@@ -24,7 +24,7 @@ namespace GG.Combinatorics.Tests
         public void PermutatingEmptyCollectionReturnsFalse()
         {
             // Given
-            IList<int> list = Any.IntIList("");
+            var list = new List<int>();
 
             // When
             var result = NextPermutation(list);
@@ -38,8 +38,8 @@ namespace GG.Combinatorics.Tests
         {
             // Given
             var element = Any.Int();
-            var list = Any.IntIList(element.ToString());
-     
+            var list = new List<int> { element };
+
             // When
             NextPermutation(list);
 
@@ -53,7 +53,7 @@ namespace GG.Combinatorics.Tests
         {
             // Given
             var element = Any.Int();
-            var list = Any.IntIList(element.ToString());
+            var list = new List<int> { element };
 
             // When
             var result = NextPermutation(list);
@@ -66,7 +66,7 @@ namespace GG.Combinatorics.Tests
         public void Permutating12UpdatesCollectionTo21()
         {
             // Given 
-            var list = Any.IntIList("1,2");
+            var list = new List<int> { 1, 2 };
 
             // When
             NextPermutation(list);
@@ -81,7 +81,7 @@ namespace GG.Combinatorics.Tests
         public void Permutating12ReturnsTrue()
         {
             // Given 
-            var list = Any.IntIList("1,2");
+            var list = new List<int> { 1, 2 };
 
             // When
             var result = NextPermutation(list);
@@ -97,7 +97,7 @@ namespace GG.Combinatorics.Tests
             var number3 = Any.Int();
             var number2 = Any.IntLessThan(number3);
             var number1 = Any.IntLessThan(number3);
-            var list = Any.IntIList(string.Format("{0},{1},{2}", number1, number2, number3));
+            var list = new List<int> {number1, number2, number3};
 
             // When
             NextPermutation(list);
@@ -107,7 +107,7 @@ namespace GG.Combinatorics.Tests
         }
 
         [TestMethod]
-        public void PermutationOfStringABCUpdatesStringToACB()
+        public void PermutationOfStringAbcUpdatesStringToAcb()
         {
             // Given
             var text = "ABC";
@@ -121,7 +121,7 @@ namespace GG.Combinatorics.Tests
         }
 
         [TestMethod]
-        public void PermutationOfStringABCReturnTrue()
+        public void PermutationOfStringAbcReturnTrue()
         {
             // Given
             var text = "ABC";
@@ -134,7 +134,7 @@ namespace GG.Combinatorics.Tests
         }
 
         [TestMethod]
-        public void PermutationOfStringCBAReturnsFalse()
+        public void PermutationOfStringCbaReturnsFalse()
         {
             // Given
             var text = "CBA";
@@ -151,7 +151,7 @@ namespace GG.Combinatorics.Tests
         {
             // Given
             var element = Any.Int();
-            var list = Any.IntIList(element.ToString());
+            var list = new List<int> {element};
 
             // When
             var result = CountAll(list);
@@ -166,7 +166,7 @@ namespace GG.Combinatorics.Tests
             // Given
             var element1 = Any.Int();
             var element2 = Any.IntLessThan(element1);
-            var list = new int[] { element1, element2 };
+            var list = new [] { element1, element2 };
 
             // When
             var result = CountAll(list);
@@ -182,7 +182,7 @@ namespace GG.Combinatorics.Tests
             var element1 = Any.Int();
             var element2 = Any.IntLessThan(element1);
             var element3 = Any.IntLessThan(element2);
-            var list = new int[] { element1, element2, element3 };
+            var list = new [] { element1, element2, element3 };
 
             // When
             var result = CountAll(list);
@@ -197,7 +197,7 @@ namespace GG.Combinatorics.Tests
             // Given
             var element1 = Any.Int();
             var element2 = Any.IntLessThan(element1);
-            var list = new int[] { element1, element2, element1 };
+            var list = new [] { element1, element2, element1 };
 
             // When
             var result = CountAll(list);
@@ -208,7 +208,7 @@ namespace GG.Combinatorics.Tests
 
         public bool NextPermutation<T>(IList<T> collection) where T : IComparable<T>
         {
-            return new PermutationGenerator().Next<T>(collection);
+            return new PermutationGenerator().Next(collection);
         }
 
         public bool NextPermutation(ref string text)

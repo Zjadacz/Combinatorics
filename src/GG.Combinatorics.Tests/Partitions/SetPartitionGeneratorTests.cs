@@ -13,11 +13,11 @@ namespace GG.Combinatorics.Tests.Partitions
         public void NextSetPartitionFrom2ElementsSetUpdatesCollectionToTwoOneElementSets()
         {
             // Given
-            var list = Any.CharIList("a,b");
+            var list = new List<char> { 'a', 'b' };
             var listOfLists = new List<IList<char>> { list };
 
             // When
-            NextSetPartition<char>(listOfLists);
+            NextSetPartition(listOfLists);
 
             // Then
             Assert.AreEqual(2, listOfLists.Count);
@@ -29,11 +29,11 @@ namespace GG.Combinatorics.Tests.Partitions
         public void NextSetPartitionFrom2ElementsSetReturnsTrue()
         {
             // Given
-            var list = Any.CharIList("a,b");
+            var list = new List<char> { 'a', 'b' };
             var listOfLists = new List<IList<char>> { list };
-
+        
             // When
-            var result = NextSetPartition<char>(listOfLists);
+            var result = NextSetPartition(listOfLists);
 
             // Then
             Assert.IsTrue(result);
@@ -43,14 +43,14 @@ namespace GG.Combinatorics.Tests.Partitions
         public void NextSetPartitionFromSetThatAlowsPermutationWillPermutateNumberButTheCountOfSetsStaysTheSame()
         {
             // Given
-            var list1 = Any.CharIList("a");
-            var list2 = Any.CharIList("b,c,d");
+            var list1 = new List<char> { 'a' };
+            var list2 = new List<char> { 'b', 'c', 'd' };
             var listOfLists = new List<IList<char>> { list1, list2 };
-            var expectedList1 = Any.CharIList("b");
-            var expectedList2 = Any.CharIList("a,c,d");
+            var expectedList1 = new List<char> { 'b' };
+            var expectedList2 = new List<char> { 'a', 'c', 'd' };
 
             // When
-            NextSetPartition<char>(listOfLists);
+            NextSetPartition(listOfLists);
 
             // Then
             Assert.AreEqual(2, listOfLists.Count);
@@ -59,17 +59,17 @@ namespace GG.Combinatorics.Tests.Partitions
         }
 
         [TestMethod]
-        public void NextSetPartitionFromDandABCWillPermutateToABandCD()
+        public void NextSetPartitionFromDandAbcWillPermutateToAbAndCd()
         {
             // Given
-            var list1 = Any.CharIList("d");
-            var list2 = Any.CharIList("a,b,c");
+            var list1 = new List<char> { 'd' };
+            var list2 = new List<char> { 'a', 'b', 'c' };
             var listOfLists = new List<IList<char>> { list1, list2 };
-            var expectedList1 = Any.CharIList("a,b");
-            var expectedList2 = Any.CharIList("c,d");
+            var expectedList1 = new List<char> { 'a', 'b' };
+            var expectedList2 = new List<char> { 'c', 'd' };
 
             // When
-            NextSetPartition<char>(listOfLists);
+            NextSetPartition(listOfLists);
 
             // Then
             Assert.AreEqual(2, listOfLists.Count);
@@ -78,17 +78,17 @@ namespace GG.Combinatorics.Tests.Partitions
         }
 
         [TestMethod]
-        public void NextSetPartitionFromABandCDWillPermutateToACandBD()
+        public void NextSetPartitionFromABandCcWillPermutateToAcandBd()
         {
             // Given
-            var list1 = Any.CharIList("a,b");
-            var list2 = Any.CharIList("c,d");
+            var list1 = new List<char> { 'a', 'b' };
+            var list2 = new List<char> { 'c', 'd' };
             var listOfLists = new List<IList<char>> { list1, list2 };
-            var expectedList1 = Any.CharIList("a,c");
-            var expectedList2 = Any.CharIList("b,d");
+            var expectedList1 = new List<char> { 'a', 'c' };
+            var expectedList2 = new List<char> { 'b', 'd' };
 
             // When
-            NextSetPartition<char>(listOfLists);
+            NextSetPartition(listOfLists);
 
             // Then
             Assert.AreEqual(2, listOfLists.Count);
@@ -100,13 +100,13 @@ namespace GG.Combinatorics.Tests.Partitions
         public void CreateIntPartitionFromTwoThreeElementSetsReturns33()
         {
             // Given
-            var list1 = Any.CharIList("a,b,c");
-            var list2 = Any.CharIList("d,e,f");
+            var list1 = new List<char> { 'a', 'b', 'c' };
+            var list2 = new List<char> { 'd', 'e', 'f' };
             var listOfLists = new List<IList<char>> { list1, list2 };
             var expectedIntPartition = new List<int> { 3, 3 };
 
             // When
-            var result = CreateIntPartition<char>(listOfLists);
+            var result = CreateIntPartition(listOfLists);
 
             // Then 
             CollectionAssert.AreEqual(expectedIntPartition, result);
@@ -114,12 +114,12 @@ namespace GG.Combinatorics.Tests.Partitions
 
         public bool NextSetPartition<T>(IList<IList<T>> collectionOfSets) where T: IComparable<T>
         {
-            return new SetPartitionGenerator().Next<T>(collectionOfSets);
+            return new SetPartitionGenerator().Next(collectionOfSets);
         }
 
         public List<int> CreateIntPartition<T>(IList<IList<T>> collectionOfSets)
         {
-            return new SetPartitionGenerator().CreateIntPartition<T>(collectionOfSets);
+            return new SetPartitionGenerator().CreateIntPartition(collectionOfSets);
         }
     }
 }
