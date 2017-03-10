@@ -39,13 +39,12 @@ namespace GG.Combinatorics.Partitions
 
             var intPartition = CreateIntPartition(collectionOfSets);
             var flatCollection = collectionOfSets.SelectMany(s => s).ToArray();
-            var permutationGenerator = new PermutationGenerator();
 
             bool wasChange = false;
 
             if (collectionOfSets.Count > 1)
             {
-                wasChange = permutationGenerator.Next(flatCollection);
+                wasChange = PermutationGenerator.Next(flatCollection);
             }
 
             if (!wasChange)

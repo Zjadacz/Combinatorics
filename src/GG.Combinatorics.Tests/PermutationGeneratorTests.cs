@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 
 namespace GG.Combinatorics.Tests
@@ -14,7 +13,7 @@ namespace GG.Combinatorics.Tests
             var list = new List<int>();
 
             // When
-            NextPermutation(list);
+            PermutationGenerator.Next(list);
 
             // Then
             Assert.AreEqual(0, list.Count);
@@ -27,7 +26,7 @@ namespace GG.Combinatorics.Tests
             var list = new List<int>();
 
             // When
-            var result = NextPermutation(list);
+            var result = PermutationGenerator.Next(list);
 
             // Then
             Assert.IsFalse(result);
@@ -41,7 +40,7 @@ namespace GG.Combinatorics.Tests
             var list = new List<int> { element };
 
             // When
-            NextPermutation(list);
+            PermutationGenerator.Next(list);
 
             // Then
             Assert.AreEqual(1, list.Count);
@@ -56,7 +55,7 @@ namespace GG.Combinatorics.Tests
             var list = new List<int> { element };
 
             // When
-            var result = NextPermutation(list);
+            var result = PermutationGenerator.Next(list);
 
             // Then
             Assert.IsFalse(result);
@@ -69,7 +68,7 @@ namespace GG.Combinatorics.Tests
             var list = new List<int> { 1, 2 };
 
             // When
-            NextPermutation(list);
+            PermutationGenerator.Next(list);
 
             // Then
             Assert.AreEqual(2, list.Count);
@@ -84,7 +83,7 @@ namespace GG.Combinatorics.Tests
             var list = new List<int> { 1, 2 };
 
             // When
-            var result = NextPermutation(list);
+            var result = PermutationGenerator.Next(list);
 
             // Then
             Assert.IsTrue(result);
@@ -100,7 +99,7 @@ namespace GG.Combinatorics.Tests
             var list = new List<int> {number1, number2, number3};
 
             // When
-            NextPermutation(list);
+            PermutationGenerator.Next(list);
 
             // Then
             Assert.IsTrue(list[0] > number1 || (list[0] == number1 && list[1] > number1));
@@ -114,7 +113,7 @@ namespace GG.Combinatorics.Tests
             var expectedText = "ACB";
 
             // When
-            NextPermutation(ref text);
+            PermutationGenerator.Next(ref text);
 
             // Then
             Assert.AreEqual(expectedText, text);
@@ -127,7 +126,7 @@ namespace GG.Combinatorics.Tests
             var text = "ABC";
 
             // When
-            var result = NextPermutation(ref text);
+            var result = PermutationGenerator.Next(ref text);
 
             // Then
             Assert.IsTrue(result);
@@ -140,7 +139,7 @@ namespace GG.Combinatorics.Tests
             var text = "CBA";
 
             // When
-            var result = NextPermutation(ref text);
+            var result = PermutationGenerator.Next(ref text);
 
             // Then
             Assert.IsFalse(result);
@@ -154,7 +153,7 @@ namespace GG.Combinatorics.Tests
             var list = new List<int> {element};
 
             // When
-            var result = CountAll(list);
+            var result = PermutationGenerator.CountAll(list);
 
             // Then
             Assert.AreEqual(1, result);
@@ -169,7 +168,7 @@ namespace GG.Combinatorics.Tests
             var list = new [] { element1, element2 };
 
             // When
-            var result = CountAll(list);
+            var result = PermutationGenerator.CountAll(list);
 
             // Then
             Assert.AreEqual(2, result);
@@ -185,7 +184,7 @@ namespace GG.Combinatorics.Tests
             var list = new [] { element1, element2, element3 };
 
             // When
-            var result = CountAll(list);
+            var result = PermutationGenerator.CountAll(list);
 
             // Then
             Assert.AreEqual(6, result);
@@ -200,25 +199,10 @@ namespace GG.Combinatorics.Tests
             var list = new [] { element1, element2, element1 };
 
             // When
-            var result = CountAll(list);
+            var result = PermutationGenerator.CountAll(list);
 
             // Then
             Assert.AreEqual(2, result);
-        }
-
-        public bool NextPermutation<T>(IList<T> collection) where T : IComparable<T>
-        {
-            return new PermutationGenerator().Next(collection);
-        }
-
-        public bool NextPermutation(ref string text)
-        {
-            return new PermutationGenerator().Next(ref text);
-        }
-
-        public long CountAll<T>(IList<T> collection) where T: IComparable<T>
-        {
-            return new PermutationGenerator().CountAll(collection);
         }
     }
 }

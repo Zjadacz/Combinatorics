@@ -1,9 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GG.Combinatorics", "GG.Combinatorics\GG.Combinatorics.csproj", "{8A7FB26C-86C4-4D35-B0B3-534F6EE7EFB5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GG.Combinatorics.Tests", "GG.Combinatorics.Tests\GG.Combinatorics.Tests.csproj", "{FAECDBE3-6F6E-4547-A349-E51DA5721BD1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GG.Combinatorics.PerformanceTests", "GG.Combinatorics.PerformanceTests\GG.Combinatorics.PerformanceTests.csproj", "{3C57F352-A36E-445C-A5C4-8DA289C34277}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,6 +23,10 @@ Global
 		{FAECDBE3-6F6E-4547-A349-E51DA5721BD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FAECDBE3-6F6E-4547-A349-E51DA5721BD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FAECDBE3-6F6E-4547-A349-E51DA5721BD1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C57F352-A36E-445C-A5C4-8DA289C34277}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C57F352-A36E-445C-A5C4-8DA289C34277}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C57F352-A36E-445C-A5C4-8DA289C34277}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C57F352-A36E-445C-A5C4-8DA289C34277}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
