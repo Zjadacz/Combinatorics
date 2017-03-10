@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GG.Combinatorics.Tests
 {
@@ -32,9 +30,9 @@ namespace GG.Combinatorics.Tests
 
         private static IList<T> GenericIList<T>(string comaSeparatedString, Func<string, T> parsingFunction)
         {
-            string[] parts = comaSeparatedString.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+            string[] parts = comaSeparatedString.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
 
-            var list = parts.Select(s => parsingFunction(s));
+            var list = parts.Select(parsingFunction);
             var r = new Random();
             if (r.Next(2) == 0)
             {

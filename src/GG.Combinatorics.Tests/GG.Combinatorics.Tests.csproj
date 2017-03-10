@@ -51,11 +51,11 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Any.cs" />
-    <Compile Include="IntegerPartitionGeneratorTests.cs" />
+    <Compile Include="Partitions\IntegerPartitionGeneratorTests.cs" />
     <Compile Include="MathHelperTests.cs" />
     <Compile Include="PermutationGeneratorTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SetPartitionGeneratorTests.cs" />
+    <Compile Include="Partitions\SetPartitionGeneratorTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GG.Combinatorics\GG.Combinatorics.csproj">

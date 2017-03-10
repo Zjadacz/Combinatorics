@@ -2,10 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace GG.Combinatorics.Tests
+namespace GG.Combinatorics.Tests.Partitions
 {
     [TestClass]
     public class SetPartitionGeneratorTests

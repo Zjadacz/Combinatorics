@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GG.Combinatorics
+namespace GG.Combinatorics.Partitions
 {
     /// <summary>
     /// Partition is a way of writing number as a sum of positive integers. Two sums that differ only 

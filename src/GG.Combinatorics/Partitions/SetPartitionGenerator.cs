@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GG.Combinatorics
+namespace GG.Combinatorics.Partitions
 {
     public class SetPartitionGenerator
     {
