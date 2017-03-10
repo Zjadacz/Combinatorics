@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
+using GG.Combinatorics.Partitions;
 
 namespace GG.Combinatorics.Tests.Partitions
 {

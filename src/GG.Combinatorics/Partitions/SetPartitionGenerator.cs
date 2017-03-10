@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GG.Combinatorics.Partitions
 {
@@ -39,7 +37,7 @@ namespace GG.Combinatorics.Partitions
                 }
             }
 
-            var intPartition = CreateIntPartition<T>(collectionOfSets);
+            var intPartition = CreateIntPartition(collectionOfSets);
             var flatCollection = collectionOfSets.SelectMany(s => s).ToArray();
             var permutationGenerator = new PermutationGenerator();
 
@@ -47,7 +45,7 @@ namespace GG.Combinatorics.Partitions
 
             if (collectionOfSets.Count > 1)
             {
-                wasChange = permutationGenerator.Next<T>(flatCollection);
+                wasChange = permutationGenerator.Next(flatCollection);
             }
 
             if (!wasChange)
@@ -58,9 +56,9 @@ namespace GG.Combinatorics.Partitions
 
             if (wasChange)
             {
-                int counter = 0;
+                var counter = 0;
                 collectionOfSets.Clear();
-                foreach(int count in intPartition)
+                foreach(var count in intPartition)
                 {
                     collectionOfSets.Add(flatCollection.Skip(counter).Take(count).OrderBy(k => k).ToList());
                     counter += count;

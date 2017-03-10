@@ -62,17 +62,18 @@ namespace GG.Combinatorics
 
         /// <summary>
         /// Generic implementation of Knuth's permutation algorithm
-        /// 1. Find the largest index j such that a[j] < a[j + 1]. If no such index exists, the permutation is the last permutation.
-        /// 2. Find the largest index l such that a[j] < a[l]. Since j + 1 is such an index, l is well defined and satisfies j < l.
+        /// 1. Find the largest index j such that a[j] &lt; a[j + 1]. If no such index exists, the permutation is the last permutation.
+        /// 2. Find the largest index l such that a[j] &lt; a[l]. Since j + 1 is such an index, l is well defined and satisfies j &lt; l.
         /// 3. Swap a[j] with a[l].
         /// 4. Reverse the sequence from a[j + 1] up to and including the final element a[n].
         /// </summary>
         /// <param name="text">Input text to permutate</param>
+        /// <param name="comparer">Comparer to use</param>
         /// <returns>True if permutation was done, false otherwise</returns>
         public bool Next(ref string text, IComparer<char> comparer = null)
         {
             var listOfCharacters = text.ToCharArray();
-            var result = this.Next(listOfCharacters, comparer);
+            var result = Next(listOfCharacters, comparer);
             if (result)
             {
                 text = new string(listOfCharacters);
@@ -83,16 +84,9 @@ namespace GG.Combinatorics
 
         public long CountAll<T>(IList<T> input, IComparer<T> comparer = null) where T: IComparable<T>
         {
-            IList<T> ordered = null;
-
-            if (comparer != null)
-            {
-                ordered = input.OrderBy(k => k, comparer).ToList();
-            }
-            else
-            {
-                ordered = input.OrderBy(k => k).ToList();
-            }
+            var ordered = comparer != null 
+                ? input.OrderBy(k => k, comparer).ToList() 
+                : input.OrderBy(k => k).ToList();
 
             int distinctElementsCount = 1;
             for (int i = 1; i < ordered.Count; i++)

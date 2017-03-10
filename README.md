@@ -1,15 +1,14 @@
 Combinatorics
 ============
 ##Summary
-This is simple .NET library for creating various permutations, combinations, and other. Those are main implementation and functional features of the library:
-- implemented using BDD
+This is simple .NET library for creating various permutations, combinations, partitions and other. Those are main implementation and functional features of the library:
 - implemented to use generic types
-- use custom elements comparisson method
-- generator classes should be stateless, hence each next combination, permutation, etc, should be generated from previous one
+- use custom elements comparison method
+- generator classes should be stateless, hence each next combination, permutation, etc., should be generated from previous one
 
 ##Permutations
 
-By permutation we understant different order of the elements of the list/array. For example here are all permutations of number 123:
+By permutation we understand different order of the elements of the list/array. For example here are all permutations of number 123:
 - 132
 - 213
 - 231
@@ -28,7 +27,7 @@ http://en.wikipedia.org/wiki/Permutation
 
 ###Implementation
 
-GG.Combinatorics namespace contains class called PermutationGenerator, that implements one method called Next. The method by default will return next "greather" permutation (see example above), however it can be overloaded to support custom comparer:
+GG.Combinatorics namespace contains class called PermutationGenerator, that implements one method called Next. The method by default will return next "greater" permutation (see example above), however it can be overloaded to support custom comparer:
 
 ```c#
 bool PermutaitonGenerator.Next<T>(IList<T> input, IComparer<T> comparer = null)
@@ -85,7 +84,7 @@ new IntegerPartitionGenerator().Next(list);
 
 ##SetPartition
 
-Simillary to integer partition set partition is used to create different division (subsets) of given set. For example when we try to create partitions for set {a,b,c,d}, we will end up with:
+Similarly to integer partition set partition is used to create different division (subsets) of given set. For example when we try to create partitions for set {a,b,c,d}, we will end up with:
 - {a}, {b,c,d}
 - {b}, {a,c,d}
 - {c}, {a,b,d}
