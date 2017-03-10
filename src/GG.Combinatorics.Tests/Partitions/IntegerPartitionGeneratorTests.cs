@@ -78,7 +78,6 @@ namespace GG.Combinatorics.Tests.Partitions
         {
             // Given
             var list = new List<int> { 2 };
-            var expectedList = new List<int> { 1, 1 };
 
             // When
             var result = NextPartition(list);
