@@ -51,6 +51,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Any.cs" />
+    <Compile Include="CombinationGeneratorTests.cs" />
     <Compile Include="Partitions\IntegerPartitionGeneratorTests.cs" />
     <Compile Include="MathHelperTests.cs" />
     <Compile Include="PermutationGeneratorTests.cs" />

@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CombinationGenerator.cs" />
     <Compile Include="Partitions\IntegerPartitionGenerator.cs" />
     <Compile Include="MathHelper.cs" />
     <Compile Include="PermutationGenerator.cs" />
