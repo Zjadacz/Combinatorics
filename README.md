@@ -49,6 +49,20 @@ public class ReversedOrderComparer: IComparer<int>
 new PermutationGenerator().Next({ 9, 8, 7 }, new ReversedOrderComparer());
 ```
 
+## Combinations
+
+Combination is a unique subset of elementes from set with length K. For example here is the list of combinations of length 2, of set { a, b, c, d }:
+- { a, b }
+- { a, c }
+- { a, d }
+- { b, c }
+- { b, d }
+- { c, d }
+
+### Implementation
+
+TODO
+
 ##Integer Partitions
 
 Partition is a way of writing number as a sum of positive integers. Two sums that differ only in the order of their summands are consider the same parition. For example here is a list of all subsequent partitions of number 6:
