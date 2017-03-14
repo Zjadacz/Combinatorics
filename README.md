@@ -1,11 +1,11 @@
 Combinatorics
 ============
-##Summary
+## Summary
 This is simple .NET library for creating various permutations, combinations, partitions and other. Those are main implementation and functional features of the library:
 - fast and simple
 - implementation is data-independent
 
-##Permutations
+## Permutations
 
 By permutation we understand different order of the elements of the list/array. For example here are all permutations of number 123:
 - 132
@@ -24,7 +24,7 @@ Or for string "abc" it will be:
 For more information look at:
 http://en.wikipedia.org/wiki/Permutation
 
-###Implementation
+### Implementation
 
 We have implemented permutations to only contain information about possible positions in collection of data of  any type. Let's imagine that we have array of three string, we don't have to operate on those strings directly, but only on its positions:
 
