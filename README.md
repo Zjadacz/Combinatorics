@@ -2,9 +2,8 @@ Combinatorics
 ============
 ##Summary
 This is simple .NET library for creating various permutations, combinations, partitions and other. Those are main implementation and functional features of the library:
-- implemented to use generic types
-- use custom elements comparison method
-- generator classes should be stateless, hence each next combination, permutation, etc., should be generated from previous one
+- fast and simple
+- implementation is data-independent
 
 ##Permutations
 
@@ -27,31 +26,43 @@ http://en.wikipedia.org/wiki/Permutation
 
 ###Implementation
 
-GG.Combinatorics namespace contains class called PermutationGenerator, that implements one method called Next. The method by default will return next "greater" permutation (see example above), however it can be overloaded to support custom comparer:
+We have implemented permutations to only contain information about possible positions in collection of data of  any type. Let's imagine that we have array of three string, we don't have to operate on those strings directly, but only on its positions:
 
 ```c#
-bool PermutaitonGenerator.Next<T>(IList<T> input, IComparer<T> comparer = null)
-bool PermutationGenerator.Next(string text, IComparer<char> comparer = null)
-```
+// We are creating permutation of three elementes collection 
+// (we don't really care here about collection data type - just length)
+var permutation = new Permutation(3);
 
-When we want to create permutations in reversed order, the code should look like this:
+// Permutation was created with first possible permutation so positions collection will be equal
+// permutation.Positions[0] == 0;
+// permutation.Positions[1] == 1;
+// permutation.Positions[2] == 2;
 
-```c#
+// Here we can iterate to next permutation (if possible, null otherwise)
+var nextPermutation = permutation.Next();
 
-public class ReversedOrderComparer: IComparer<int>
-{
-  public int Compare(int x, int y)
-  {
-      return y.CompareTo(x);
-  }
-}
+// Now Permutation was iterated to next smallest possible permutation, so positions will be equal
+// nextPermutation.Positions[0] == 0;
+// nextPermutation.Positions[1] == 2;
+// nextPermutation.Positions[2] == 1;
 
-new PermutationGenerator().Next({ 9, 8, 7 }, new ReversedOrderComparer());
+// At any time we can apply this permutation to any IList<T> based collection, 
+// lets try to use nextPermutation for that
+
+// String
+var strings = new [] { "this", "is", "test" };
+var stringsPermutation = nextPermutation.Apply(string);
+// stringsPermutation == { "this", "test", "is" }
+
+// Ints
+var integers = new List<int> { 1, 2, 3 };
+var integersPermutation = nextPermutation.Apply(integers);
+// integersPermutation == { 1, 3, 2 }
 ```
 
 ## Combinations
 
-Combination is a unique subset of elementes from set with length K. For example here is the list of combinations of length 2, of set { a, b, c, d }:
+Combination is a unique subset of K elementes from set of length N. For example here is the list of combinations of length 2, of set { a, b, c, d }:
 - { a, b }
 - { a, c }
 - { a, d }
@@ -61,7 +72,39 @@ Combination is a unique subset of elementes from set with length K. For example 
 
 ### Implementation
 
-TODO
+Like in permutations we have implemented combinations only to contain information about possible positions in collection of data of any type. Additionally our implementaiton of combinations will always order positions in ascending order like in example above) because combinations { a, b } and { b, a } are equal and represent the same combination.
+
+Let's imagine that we have array of three string, we don't have to operate on those strings directly, but only on its positions:
+
+```c#
+// We are creating combination of length two using three elementes collection 
+// (we don't really care here about collection data type - just length of data, and length of combination)
+var combination = new Combination(3, 2);
+
+// Combination was created with first possible combination so positions collection will be equal
+// combination.Positions[0] == 0;
+// combination.Positions[1] == 1;
+
+// Here we can iterate to next combination (if possible, null otherwise)
+var nextCombination = combination.Next();
+
+// Now Permutation was iterated to next smallest possible permutation, so positions will be equal
+// nextCombination.Positions[0] == 0;
+// nextCombination.Positions[1] == 2;
+
+// At any time we can apply this combination to any IList<T> based collection, 
+// lets try to use nextPermutation for that
+
+// String
+var strings = new [] { "this", "is", "test" };
+var stringsCombination = nextCombination.Apply(string);
+// stringsCombination == { "this", "test" }
+
+// Ints
+var integers = new List<int> { 1, 2, 3 };
+var integersCombination = nextCombination.Apply(integers);
+// integersCombination == { 1, 3 }
+```
 
 ##Integer Partitions
 
