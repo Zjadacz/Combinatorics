@@ -111,7 +111,7 @@ var integersCombination = nextCombination.Apply(integers);
 // integersCombination == { 1, 3 }
 ```
 
-##Integer Partitions
+## Integer Partitions
 
 Partition is a way of writing number as a sum of positive integers. Two sums that differ only in the order of their summands are consider the same parition. For example here is a list of all subsequent partitions of number 6:
 - 1,5
@@ -128,7 +128,7 @@ Partition is a way of writing number as a sum of positive integers. Two sums tha
 For more information look at:
 http://en.wikipedia.org/wiki/Partition_(number_theory)
 
-###Implementation
+### Implementation
 
 GG.Combinatorics namespace contains class IntegerPartitionGenerator, that implements method called Next. This method updates list given as a parameter to next partition (see example above). If next partition is available it return true, false otherwise.
 
@@ -144,7 +144,7 @@ new IntegerPartitionGenerator().Next(list);
 // will update list to  { 1, 4 } and return true
 ```
 
-##SetPartition
+## SetPartition
 
 Similarly to integer partition set partition is used to create different division (subsets) of given set. For example when we try to create partitions for set {a,b,c,d}, we will end up with:
 - {a}, {b,c,d}
@@ -162,7 +162,7 @@ Similarly to integer partition set partition is used to create different divisio
 - {c}, {d}, {a,b}
 - {a}, {b}, {c}, {d}
 
-###Implementation
+### Implementation
 
 GG.Combinatorics namespace contains class SetPartitionGenerator, that implements method called Next. This method update lists of lists given as a parameter to next set partition. If next partition is available it return true, false otherwise.
 
@@ -174,7 +174,3 @@ var list = new List<int> {
 new SetPartitionGenerator().Next(list);
 // will update list to  {{1}, {2,3,4}} and return true
 ```
-
-
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/Zjadacz/combinatorics/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-
