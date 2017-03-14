@@ -70,6 +70,11 @@ Combination is a unique subset of K elementes from set of length N. For example 
 - { b, d }
 - { c, d }
 
+So in this example by all combination we can understan collection of all possible pairs of letters from a to d (mind that combination doesn't care of positions, so pair ab is equal to pair ba).
+
+For more information look at:
+https://en.wikipedia.org/wiki/Combination
+
 ### Implementation
 
 Like in permutations we have implemented combinations only to contain information about possible positions in collection of data of any type. Additionally our implementaiton of combinations will always order positions in ascending order like in example above) because combinations { a, b } and { b, a } are equal and represent the same combination.
