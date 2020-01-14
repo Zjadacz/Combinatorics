@@ -51,7 +51,7 @@ var nextPermutation = permutation.Next();
 
 // String
 var strings = new [] { "this", "is", "test" };
-var stringsPermutation = nextPermutation.Apply(string);
+var stringsPermutation = nextPermutation.Apply(strings);
 // stringsPermutation == { "this", "test", "is" }
 
 // Ints
